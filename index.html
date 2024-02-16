@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+        color: #fff;
+    }
+    html , body{
+        height: 100%;
+        width: 100%;
+    }
+    .container{
+        height: 100%;
+        background: #333;
+        display: grid;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        grid-gap: 20px 0px;
+    }
+    .container > h1{
+        text-align: center;
+    }
+    .main{
+        display: grid;
+        align-items: center;
+        padding: 20px;
+        border-radius: 10px;
+        background: #444;
+    }
+    .main > textarea{
+        padding: 20px;
+        height: 400px;
+        width: 600px;
+        background: #555;
+        outline: none;
+        font-size: 18px;
+    }
+    .main > p{
+        font-size: 20px;
+        padding: 10px;
+        text-align: center;
+    }
+    .main > p > span{
+        color: lightgray;
+    }
+</style>
+<body>
+
+    <div class="container">
+        <h1>Word Counter</h1>
+        <div class="main">
+            <textarea id="textarea"></textarea>
+            <p><span id="word">0</span> Words <span id="letter">0</span> Letters</p>
+        </div>
+    </div>
+
+
+
+    <script>
+
+        const textarea = document.getElementById('textarea');
+
+        textarea.addEventListener('input',function(){
+            document.getElementById('letter').innerHTML = this.value.length;
+
+            let split = this.value.split(' ');
+            let cleanList = split.filter(function(elm){
+                return elm !== '';
+            });
+            document.getElementById('word').innerHTML = cleanList.length;
+        });      
+
+    </script>
+    
+</body>
+</html>
