@@ -1,5 +1,7 @@
+// Constant
 const textarea = document.getElementById('textarea');
 
+// logic
 textarea.addEventListener('input',function(){
     document.getElementById('letter').innerHTML = this.value.length;
     
